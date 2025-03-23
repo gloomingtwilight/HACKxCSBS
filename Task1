@@ -1,0 +1,36 @@
+// Find the First Non-Repeating Character in a String
+
+#include <stdio.h>
+#include <string.h>
+
+char nonRepeatingCharacter(char s[]) 
+{
+    int i, j;
+    int n = strlen(s); // length of the string
+    for (i = 0; i < n; i++) // loop through the string to check each character
+    {
+        int found = 0;
+        for (j = 0; j < n; j++) //loop through the string to check if the character is repeated
+        {
+            if (i != j && s[i] == s[j]) 
+            { 
+                found = 1;
+                break;// if the character is repeated, break the loop
+            }
+        }
+        if (found == 0) // if the character is not repeated, return the character
+        {
+            return s[i];
+        }
+}
+    return 0;// if no non-repeating character is found, return 0
+}
+
+int main() 
+{
+    char s[100];
+    printf("Enter a string: ");// input the string
+    scanf("%s", s);
+    printf("%c\n", nonRepeatingCharacter(s));// output the first non-repeating character
+    return 0;
+}
